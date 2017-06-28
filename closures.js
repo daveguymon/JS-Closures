@@ -179,7 +179,7 @@ motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
 invokes privateMethod. Invoke this by calling module.publicMethod(); outside
 the module scope */
 
-var module = (function () {
+var module = (function() {
     var person = {
         name: "phillip",
         age: 29,
@@ -194,9 +194,13 @@ var module = (function () {
     // outside our lexical scope
     return {
         // Code here.
-    };
-
+        publicMethod: function(){
+           return privateMethod();
+        }
+    }
 })();
+
+
 
 
 
@@ -254,6 +258,9 @@ to 5. What we need to do is console.log(i) so that it logs like so:
 
 function timeOutCounter() {
     for (var i = 0; i <= 5; i++) {
+        
+        
+        
         setTimeout(function () {
             console.log(i)
         }, i * 1000)
