@@ -268,12 +268,14 @@ to 5. What we need to do is console.log(i) so that it logs like so:
 
 function timeOutCounter() {
     for (var i = 0; i <= 5; i++) {
-        
-        
-        
-        setTimeout(function () {
-            console.log(i)
-        }, i * 1000)
+       setTimeout(callback(i), i * 1000)
     }
+
+ 
+  function callback(i) {
+    return function() {
+     console.log(i);
+    }
+  }
 }
 timeOutCounter();
